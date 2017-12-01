@@ -12,5 +12,11 @@
   </head>
   <body>
     <h2>Test</h2>
+    <form action="/userRegisteredServelt" method="post">
+        name:<input type="text" name="name">
+       email:<input type="text" name="email">
+      password:<input type="password" name="password">
+      <input type="submit" value="注册">
+    </form>
   </body>
 </html>
