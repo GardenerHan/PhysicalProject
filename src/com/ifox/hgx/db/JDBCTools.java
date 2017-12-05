@@ -90,7 +90,6 @@ public static List<List<Object>> result(String sql, Object... args) {
                 ps.setObject(i + 1, args[i]);
             }
         }
-        System.out.println("sql:"+sql);
         rs = ps.executeQuery();
         int m = rs.getMetaData().getColumnCount();
         while (rs.next()) {

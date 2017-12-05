@@ -15,14 +15,16 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public boolean login(String email, String password) {
+    public Users login(String email, String password) {
         boolean flag = false ;
         String sql = "select id,email,password,name,createdAt,updatedAt from users where email = ? and password = ? ";
        List<List<Users>> lists = UsersCRUD.result(sql,email,password) ;
-        System.out.println(lists);
-        if(lists.size() >  0){
-            flag  = true ;
-        }
-        return  flag ;
+       List<Users> list = lists.get(0) ;
+        Users user = null;
+        System.out.println(list.size());
+       if (list.size() >0)
+           user = list.get(0) ;
+        return user ;
+
     }
 }

@@ -11,7 +11,7 @@ public class UserDAOProxy implements UserDAO{
     }
 
     @Override
-    public boolean login(String email, String password) {
+    public Users login(String email, String password) {
         return new UserDAOImpl().login(email,password);
     }
 }
