@@ -12,7 +12,7 @@
   </head>
   <body>
     <h2>Test</h2>
-    <form action="/userRegisteredServelt" method="post">
+    <form action="/userRegisteredServlet" method="post">
         name:<input type="text" name="name">
        email:<input type="text" name="email">
       password:<input type="password" name="password">

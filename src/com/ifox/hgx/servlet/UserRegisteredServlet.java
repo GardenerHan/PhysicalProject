@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Timestamp;
 import java.util.Date;
 
-@WebServlet(name = "UserRegisteredServelt", urlPatterns = "/userRegisteredServelt")
-public class UserRegisteredServelt extends HttpServlet {
+@WebServlet(name = "UserRegisteredServlet", urlPatterns = "/userRegisteredServlet")
+public class UserRegisteredServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
@@ -22,21 +23,14 @@ public class UserRegisteredServelt extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        String name = request.getParameter("name");
-        int id = 100001 + IDandDate.getID();
-        Date date=new Date();
-        Timestamp t=new Timestamp(date.getTime());
-        Timestamp createAt  = t ;
-        Timestamp updateAt  = t ;
-        Users users = new Users(email, password, name, id, createAt, updateAt);
+        Timestamp t=new Timestamp(new Date().getTime());
+        Users users = new Users(email, password, null, 100001 + IDandDate.getID(), t, t);
         boolean result =  UserHandle.UHRegistered(users);
-
-
-
+        PrintWriter out = response.getWriter();
         if (result){
-            System.out.println("注册成功");
+           out.print("true");
         }else {
-            System.out.println("注册失败");
+           out.print("false");
         }
 
 

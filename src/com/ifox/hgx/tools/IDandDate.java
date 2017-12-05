@@ -5,6 +5,7 @@ import com.ifox.hgx.db.DatabaseConnection;
 import java.sql.*;
 
 public class IDandDate {
+
     public static int getID() {
         Connection conn = DatabaseConnection.getConnection();
         Statement st = null;
@@ -30,8 +31,6 @@ public class IDandDate {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
         try {
             rs.close();
             st.close();
